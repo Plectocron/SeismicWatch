@@ -1,0 +1,12 @@
+<%- include("partials/header")%>
+<h2 class="center push-top text-in-background">Analyze Earthquake Reports Within An Area</h2>
+<form method="POST" action="/result">
+  <div class="input-area py-3 px-3">
+    <div class="input-block"><label for="latitude">Latitude: </label><input id="latitude" name="latitude" type="text" placeholder="e.g. 14.590548959122305" required></div>
+    <div class="input-block"><label for="longitude">Longitude: </label><input id="longitude" name="longitude" type="text" placeholder="e.g. 120.97793830591272" required></div>
+    <div class="input-block"><label for="radius">Radius (km): </label><input id="radius" name="radius" type="text" placeholder="e.g. 100" required></div>
+  </div>
+  <button class="button center" type="submit">Submit</button>
+</form>
+
+<%- include("partials/footer")%>

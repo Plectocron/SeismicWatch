@@ -1,0 +1,91 @@
+body {
+  background-color: #D2D0A0;
+  color: whitesmoke;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+hr {
+  background-color: #D2D0A0;
+}
+
+a {
+  color: whitesmoke !important;
+}
+
+main {
+  flex: 1;
+}
+
+#header {
+  margin-bottom: auto;
+  background-color: #537D5D;
+}
+
+#footer {
+  margin-top: auto;
+  background-color: #537D5D;
+}
+
+.button {
+  background-color: #73946B;
+  border-radius: 8px;
+  border: none;
+  color: white;
+}
+
+.card {
+  background-color: #9EBC8A;
+  width: 100vw;
+  max-width: 650px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.input-area {
+  background-color: #9EBC8A;
+  width: 100vw;
+  max-width: 450px;
+  min-height: 140px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto auto 5px auto;
+}
+
+.center {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.push-top {
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+.text-in-background {
+  color: #73946B;
+}
+
+.input-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-block > * {
+  display: inline;
+}
+
+input[type="text"] {
+  border-radius: 8px;
+  box-shadow: none;
+  border: none;
+  height: 30px;
+  width: 50%;
+}
