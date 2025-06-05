@@ -1,7 +1,32 @@
 <%- include("partials/header")%>
-<main>
-  <div class="card py-3 px-3 my-3"></div>
-  <div class="card py-3 px-3 my-3"></div>
-  <div class="card py-3 px-3 my-3"></div>
-</main>
+<div id="filter">
+  <form method="post" action="/filter">
+    <input type="hidden" name="url" value="<%=data.metadata.url%>">
+    <label for="magnitudeFilter">Filter by minimum magnitude</label>
+    <select name="minimumMagnitude">
+      <option value="">(Select)</option>
+      <option value="4">4</option>
+      <option value="4.5">4.5</option>
+      <option value="5">5</option>
+      <option value="5.5">5.5</option>
+      <option value="6">6</option>
+      <option value="6.5">6.5</option>
+      <option value="7">7</option>
+      <option value="7.5">7.5</option>
+      <option value="8">8</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<% for (let i = 0; i < data.features.length; i++) {
+     const earthquake = data.features[i];
+     if (locals.filterLevel && locals.filterLevel >= earthquake.properties.mag) continue;
+%>
+  <div class="my-3 resultCard <%= earthquake.properties.mag >= 7 ? 'redCard' : earthquake.properties.mag >= 5 ? 'orangeCard' : earthquake.properties.mag >= 4.5 ? 'yellowCard' : 'greenCard' %>">
+    <p class="">Magnitude: <%= earthquake.properties.mag %></p>
+    <p>Place: <%= earthquake.properties.place %></p>
+    <p>Time: <%= new Date(earthquake.properties.time).toDateString() %></p>
+    <p>Coordinates [longitude, latitude, depth (km)]: <%= earthquake.geometry.coordinates %></p>
+  </div>
+<% } %>
 <%- include("partials/footer")%>
