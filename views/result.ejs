@@ -1,8 +1,8 @@
 <%- include("partials/header")%>
-<div id="filter">
+<div id="filter" class="center my-5">
   <form method="post" action="/filter">
     <input type="hidden" name="url" value="<%=data.metadata.url%>">
-    <label for="magnitudeFilter">Filter by minimum magnitude</label>
+    <label for="magnitudeFilter" class="text-in-background">Filter by minimum magnitude</label>
     <select name="minimumMagnitude">
       <option value="">(Select)</option>
       <option value="4">4</option>

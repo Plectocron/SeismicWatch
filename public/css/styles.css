@@ -64,7 +64,7 @@ main {
   padding: 10px;
 }
 
-.greenCard { border-left-color: #73946B; }
+.greenCard { border-left-color: #39cf2b; }
 .yellowCard { border-left-color: #f1de31; }
 .orangeCard { border-left-color: #eb9737; }
 .redCard { border-left-color: #e92d2d; }
@@ -143,4 +143,10 @@ input[type="text"] {
 
 .neutralize-color {
   color: white !important;
+}
+
+select, button[type="submit"] {
+  border-radius: 8px;
+  border: none;
+  background-color: white;
 }
