@@ -6,7 +6,43 @@
     <div class="input-block"><label for="longitude">Longitude: </label><input id="longitude" name="longitude" type="text" placeholder="e.g. 120.97793830591272" required></div>
     <div class="input-block"><label for="radius">Radius (km): </label><input id="radius" name="radius" type="text" placeholder="e.g. 100" required></div>
   </div>
+  <button id="getLocation" class="button center margin-bottom-1" type="button">Use Current Location</button>
   <button class="button center" type="submit">Submit</button>
 </form>
+<script>
+document.getElementById("getLocation").addEventListener("click", function() {
+  if (navigator.geolocation) {
+    this.textContent = "Getting location";
+    this.disabled = true;
 
+    const button = this
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        document.getElementById("latitude").value = position.coords.latitude;
+        document.getElementById("longitude").value = position.coords.longitude;
+
+        button.textContent = "Location found!";
+        button.disabled = false;
+      },
+      function(error) {
+        let errorMessage = "Failed to get location. ";
+        switch(error.code) {
+          case error.PERMISSION_DENIED:
+            errorMessage += "Location access denied."
+            break;
+          case error.POSITION_UNAVAILABLE:
+            errorMessage += "Location unavailable."
+            break;
+          case error.TIMEOUT:
+            errorMessage += "Location request timed out"
+            break;
+        }
+        alert(errorMessage);
+        document.getElementById("getLocation").textContent = "Use Current Location";
+        document.getElementById("getLocation").disabled = false
+      }
+    )
+  }
+})
+</script>
 <%- include("partials/footer")%>
